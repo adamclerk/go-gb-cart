@@ -53,3 +53,4 @@ Endpoints:
         Backend:       ""
         Options:       { health: true }
 Install-Build-Required: true
+Source-Url: https://github.com/adamclerk/go-gb-cart.git

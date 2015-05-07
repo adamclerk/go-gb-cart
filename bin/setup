@@ -6,19 +6,18 @@ case "$1" in
 esac
 
 # Parse arguments
-source "${OPENSHIFT_GO_DIR}/lib/util"
+source "${OPENSHIFT_GOGB_DIR}/lib/util"
 parse_args $@
 
 # Don't set -u until after the above arg parsing is complete
 set -u
 
-echo "$version" > $OPENSHIFT_GO_DIR/env/GOVERSION
-echo ${OPENSHIFT_GO_DIR}/logs > ${OPENSHIFT_GO_DIR}/env/OPENSHIFT_GO_LOG_DIR
+echo "$version" > $OPENSHIFT_GOGB_DIR/env/GOVERSION
+echo ${OPENSHIFT_GOGB_DIR}/logs > ${OPENSHIFT_GOGB_DIR}/env/OPENSHIFT_GOGB_LOG_DIR
 
 ###
-pushd $OPENSHIFT_GO_DIR > /dev/null
+pushd $OPENSHIFT_GOGB_DIR > /dev/null
 for dir in logs tmp pid cache; do
 	mkdir -p $dir
 done
 popd > /dev/null
-

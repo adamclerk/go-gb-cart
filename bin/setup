@@ -21,3 +21,4 @@ for dir in logs tmp pid cache; do
 	mkdir -p $dir
 done
 popd > /dev/null
+

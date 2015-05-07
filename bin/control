@@ -36,9 +36,9 @@ function start() {
 
     pushd "$OPENSHIFT_REPO_DIR" > /dev/null
     {
-	     package="main"
+	package=$(basename $(get_godir))
 
-       if [ -f "bin/$package" ]; then
+        if [ -f "bin/$package" ]; then
             echo "`date +"$FMT"`: Starting application '$OPENSHIFT_APP_NAME' from bin/$package..."
 
             nohup "bin/$package" >> $logf 2>&1 &
@@ -89,10 +89,10 @@ function restart() {
 }
 
 function build() {
-  pushd "$OPENSHIFT_REPO_DIR" > /dev/null
-  gb test
-  gb build
-  popd > /dev/null
+    pushd "$OPENSHIFT_REPO_DIR" > /dev/null
+    gb test
+    gb build
+    popd > /dev/null
 }
 
 function post-deploy() {

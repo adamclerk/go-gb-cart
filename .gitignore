@@ -24,3 +24,4 @@ _testmain.go
 *.prof
 
 template/bin/*
+.DS_Store
